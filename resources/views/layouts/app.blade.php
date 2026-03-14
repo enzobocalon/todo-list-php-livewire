@@ -11,6 +11,7 @@
         @livewireStyles
     </head>
     <body>
+        <x-navbar />
         <div class="min-h-screen bg-gray-100 w-full">
             {{ $slot }}
         </div>
