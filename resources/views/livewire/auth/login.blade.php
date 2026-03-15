@@ -1,4 +1,4 @@
-<main class="w-full min-h-screen flex items-center justify-center">
+<main class="w-full flex-1 flex items-center justify-center">
     <div class="w-full max-w-lg p-4 bg-white rounded-lg shadow-md">
         <div>
             <x-alert channel="login"/>

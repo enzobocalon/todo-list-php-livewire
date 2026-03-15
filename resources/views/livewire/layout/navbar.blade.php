@@ -3,7 +3,8 @@
         TODO LIST
     </a>
 
-    <div
+    @auth
+<div
         x-data="{open: false}"
         class="relative"
         x-on:click.outside="open = false"
@@ -30,6 +31,16 @@
             </ul>
         </div>
     </div>
+    @endauth
 
-    </div>
+    @guest
+        <div class="flex gap-4 items-center">
+            <a href="{{ route('auth.login') }}" class="block nav-link">
+                Entrar
+            </a>
+            <a href="{{ route('auth.signup') }}" class="block nav-link">
+                Registrar
+            </a>
+        </div>
+    @endguest
 </nav>

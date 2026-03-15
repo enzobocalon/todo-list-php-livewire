@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Home;
 
+
 use Livewire\Component;
 
 class Index extends Component
