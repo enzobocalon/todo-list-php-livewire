@@ -1,5 +1,9 @@
 <?php
 
+/*
+    Lidar com erros no login/signup
+*/
+
 namespace App\Livewire\Layout;
 
 use App\Http\Requests\TodoRequest;

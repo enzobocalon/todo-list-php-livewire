@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     [
         "as" => "auth.",
-        "name" => "auth",
         "middleware" => ["auth"]
     ],
     function () {
@@ -16,7 +15,6 @@ Route::group(
 
 Route::group([
     "as" => "home.",
-    "name" => "home",
     "middleware" => ["auth"]
 ], function () {
     Route::livewire("/", "home.index")->name("index");
