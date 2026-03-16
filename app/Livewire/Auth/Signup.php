@@ -7,25 +7,32 @@ use App\Services\Auth\AuthService;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title("Signup")]
+#[Title('Signup')]
 class Signup extends Component
 {
-    public $name = "";
-    public $email = "";
-    public $password = "";
-    public $password_confirmation = "";
+    public $name = '';
+    public $email = '';
+    public $password = '';
+    public $password_confirmation = '';
 
-    public function signup(AuthService $service) {
+    public function signup(AuthService $service)
+    {
         $data = $this->validate(
             SignupRequest::rules(),
-            SignupRequest::customMessages()
+            SignupRequest::customMessages(),
         );
 
         try {
             $user = $service->signup($data);
-            return redirect()->route("auth.login")->with("success", "Conta criada com sucesso. Faça login para continuar.");
+            return redirect()
+                ->route('auth.login')
+                ->with(
+                    'success',
+                    'Conta criada com sucesso. Faça login para continuar.',
+                );
         } catch (\Exception $e) {
-           $this->dispatch('notify-signup',
+            $this->dispatch(
+                'notify-signup',
                 message: $e->getMessage(),
                 type: 'error',
             );

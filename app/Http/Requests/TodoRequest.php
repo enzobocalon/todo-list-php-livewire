@@ -25,15 +25,17 @@ class TodoRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'content' => 'nullable|string|max:1000',
-            'completed' => 'boolean'
+            'completed' => 'boolean',
         ];
     }
 
-    public static function customMessages() {
+    public static function customMessages()
+    {
         return [];
     }
 
-    public function messages() {
+    public function messages()
+    {
         return $this::customMessages();
     }
 }

@@ -19,7 +19,7 @@ class AuthMiddleware
         if (!Auth::check() && !$request->routeIs('auth.login', 'auth.signup')) {
             return redirect()->route('auth.login');
         }
-        if (Auth::check() && ($request->routeIs('auth.login', 'auth.signup'))) {
+        if (Auth::check() && $request->routeIs('auth.login', 'auth.signup')) {
             return redirect()->route('home');
         }
 

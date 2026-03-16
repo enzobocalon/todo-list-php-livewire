@@ -28,18 +28,20 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    public static function customMessages(): array {
+    public static function customMessages(): array
+    {
         return [
-            'email.required'    => 'O e-mail é obrigatório.',
-            'email.email'       => 'Informe um e-mail válido.',
+            'email.required' => 'O e-mail é obrigatório.',
+            'email.email' => 'Informe um e-mail válido.',
 
             'password.required' => 'A senha é obrigatória.',
-            'password.string'   => 'A senha deve ser um texto.',
-            'password.min'      => 'A senha deve ter no mínimo 8 caracteres.',
+            'password.string' => 'A senha deve ser um texto.',
+            'password.min' => 'A senha deve ter no mínimo 8 caracteres.',
         ];
     }
 
-    public function messages() {
+    public function messages()
+    {
         return $this->customMessages();
     }
 }

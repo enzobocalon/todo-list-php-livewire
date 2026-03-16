@@ -24,12 +24,14 @@ class Form extends Component
 
     protected TodoService $service;
 
-    public function boot(TodoService $todoService) {
+    public function boot(TodoService $todoService)
+    {
         $this->service = $todoService;
     }
 
     #[On('edit-todo')]
-    public function loadTodo($id) {
+    public function loadTodo($id)
+    {
         try {
             $todo = $this->service->findForUser($id, auth()->id());
             $this->id = $todo->id;
@@ -37,47 +39,70 @@ class Form extends Component
             $this->content = $todo->content;
             $this->completed = (bool) $todo->completed_at;
         } catch (ModelNotFoundException $e) {
-            $this->dispatch('notify-home', message: $e->getMessage(), type: 'error');
+            $this->dispatch(
+                'notify-home',
+                message: $e->getMessage(),
+                type: 'error',
+            );
             $this->dispatch('close-modal');
         } finally {
             $this->dispatch('end-loading');
         }
     }
 
-    public function submit() {
-        $this->validate(
-            TodoRequest::rules(),
-            TodoRequest::customMessages()
-        );
+    public function submit()
+    {
+        $this->validate(TodoRequest::rules(), TodoRequest::customMessages());
 
         $data = [
             'title' => $this->title,
             'content' => $this->content,
-            'completed' => $this->completed
+            'completed' => $this->completed,
         ];
 
         try {
             if ($this->id === null) {
                 $this->service->create($data, auth()->id());
-                $this->dispatch('notify-home', message: 'Tarefa criada com sucesso', type: 'success');
+                $this->dispatch(
+                    'notify-home',
+                    message: 'Tarefa criada com sucesso',
+                    type: 'success',
+                );
             } else {
                 $this->service->update($this->id, auth()->id(), $data);
-                $this->dispatch('notify-home', message: 'Tarefa atualizada com sucesso', type: 'success');
+                $this->dispatch(
+                    'notify-home',
+                    message: 'Tarefa atualizada com sucesso',
+                    type: 'success',
+                );
             }
         } catch (ModelNotFoundException | \RuntimeException $e) {
-            $this->dispatch('notify-home', message: $e->getMessage(), type: 'error');
+            $this->dispatch(
+                'notify-home',
+                message: $e->getMessage(),
+                type: 'error',
+            );
         } finally {
             $this->dispatch('close-modal');
             $this->reset(['title', 'content', 'completed']);
         }
     }
 
-    public function delete() {
+    public function delete()
+    {
         try {
             $this->service->delete($this->id, auth()->id());
-            $this->dispatch('notify-home', message: 'Tarefa apagada com sucesso', type: 'success');
+            $this->dispatch(
+                'notify-home',
+                message: 'Tarefa apagada com sucesso',
+                type: 'success',
+            );
         } catch (ModelNotFoundException | \RuntimeException $e) {
-            $this->dispatch('notify-home', message: $e->getMessage(), type: 'error');
+            $this->dispatch(
+                'notify-home',
+                message: $e->getMessage(),
+                type: 'error',
+            );
         } finally {
             $this->dispatch('close-modal');
             $this->reset(['title', 'content', 'completed']);

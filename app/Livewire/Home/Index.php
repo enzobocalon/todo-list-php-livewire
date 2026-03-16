@@ -14,7 +14,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.home.index', [
-            "todos" => Todo::where('user_id', auth()->id())->paginate(10)
+            'todos' => Todo::where('user_id', auth()->id())->paginate(10),
         ]);
     }
 }

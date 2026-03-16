@@ -8,17 +8,17 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
 use Livewire\Component;
 
-#[Title("Login")]
+#[Title('Login')]
 class Login extends Component
 {
+    public $email = '';
+    public $password = '';
 
-    public $email = "";
-    public $password = "";
-
-    public function login() {
+    public function login()
+    {
         $credentials = $this->validate(
             LoginRequest::rules(),
-            LoginRequest::customMessages()
+            LoginRequest::customMessages(),
         );
 
         try {
@@ -26,14 +26,15 @@ class Login extends Component
                 session()->regenerate();
                 return redirect()->route('home.index');
             } else {
-                $this->dispatch('notify-login',
+                $this->dispatch(
+                    'notify-login',
                     message: 'Credenciais inválidas.',
                     type: 'error',
                 );
             }
-
         } catch (\Exception $e) {
-            $this->dispatch('notify-login',
+            $this->dispatch(
+                'notify-login',
                 message: $e->getMessage(),
                 type: 'error',
             );
