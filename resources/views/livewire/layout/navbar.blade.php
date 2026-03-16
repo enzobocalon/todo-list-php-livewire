@@ -26,7 +26,7 @@
         <div x-show="open" x-transition class="absolute p-2 z-50 bg-white top-8 w-full border border-gray-100 shadow-md rounded-md transition-all duration-200 ">
             <ul>
                 <li>
-                    <a href="#" class="block w-full text-red-500 hover:bg-red-50 px-3 py-2 transition-all duration-200 rounded">Sair</a>
+                    <button wire:click="logout" href="#" class="w-full text-red-500 text-left cursor-pointer hover:bg-red-50 px-3 py-2 transition-all duration-200 rounded">Sair</button>
                 </li>
             </ul>
         </div>
