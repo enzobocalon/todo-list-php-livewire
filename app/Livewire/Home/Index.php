@@ -4,8 +4,10 @@ namespace App\Livewire\Home;
 
 use App\Models\Todo;
 use Livewire\Attributes\On;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title(('Home'))]
 class Index extends Component
 {
     #[On('notify-home')]
