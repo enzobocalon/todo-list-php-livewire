@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(
     [
         "as" => "auth.",
-        "middleware" => ["auth"]
+        "middleware" => ["web.auth"]
     ],
     function () {
         Route::livewire("/login", "auth.login")->name("login");
