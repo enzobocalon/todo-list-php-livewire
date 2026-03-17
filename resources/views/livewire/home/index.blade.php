@@ -13,4 +13,6 @@
     @endforeach
 
     <x-modal />
+
+    {{ $todos->links('pagination') }}
 </div>

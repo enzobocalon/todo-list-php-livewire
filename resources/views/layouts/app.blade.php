@@ -15,7 +15,9 @@
 <body>
     <div class="bg-gray-100 w-full min-h-screen flex flex-col">
         <livewire:layout.navbar />
-        {{ $slot }}
+        <div class="flex-1 px-4 flex flex-col">
+            {{ $slot }}
+        </div>
     </div>
 
     @livewireScripts
