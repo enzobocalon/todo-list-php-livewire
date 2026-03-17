@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(
     [
-        'as' => 'auth.',
         'middleware' => ['guest'],
     ],
     function () {

@@ -12,7 +12,7 @@ class Navbar extends Component
         Auth::logout();
         session()->invalidate();
         session()->regenerateToken();
-        return $this->redirectRoute('auth.login');
+        return $this->redirectRoute('login');
     }
 
     public function render()

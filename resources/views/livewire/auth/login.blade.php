@@ -20,7 +20,7 @@
 
             <button type="submit" class="w-full cursor-pointer bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600 transition duration-200">Entrar</button>
 
-            <p class="text-center mt-2">Não possui conta? <a href="{{ route('auth.signup') }}" class="text-indigo-500 hover:underline">Cadastre-se</a></p>
+            <p class="text-center mt-2">Não possui conta? <a href="{{ route('signup') }}" class="text-indigo-500 hover:underline">Cadastre-se</a></p>
         </form>
     </div>
 </main>

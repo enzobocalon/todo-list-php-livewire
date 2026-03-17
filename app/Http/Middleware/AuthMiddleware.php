@@ -16,10 +16,10 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() && !$request->routeIs('auth.login', 'auth.signup')) {
-            return redirect()->route('auth.login');
+        if (!Auth::check() && !$request->routeIs('login', 'signup')) {
+            return redirect()->route('login');
         }
-        if (Auth::check() && $request->routeIs('auth.login', 'auth.signup')) {
+        if (Auth::check() && $request->routeIs('login', 'signup')) {
             return redirect()->route('home');
         }
 

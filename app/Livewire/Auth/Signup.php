@@ -25,7 +25,7 @@ class Signup extends Component
         try {
             $user = $service->signup($data);
             return redirect()
-                ->route('auth.login')
+                ->route('login')
                 ->with(
                     'success',
                     'Conta criada com sucesso. Faça login para continuar.',

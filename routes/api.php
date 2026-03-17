@@ -4,8 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+Route::post('/login', [AuthController::class, 'login'])->name('api.login');
+Route::post('/signup', [AuthController::class, 'signup'])->name('api.signup');
 
 Route::middleware('auth:sanctum')
     ->prefix('todos')

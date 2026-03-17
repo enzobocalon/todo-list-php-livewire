@@ -35,10 +35,10 @@
 
     @guest
         <div class="flex gap-4 items-center">
-            <a href="{{ route('auth.login') }}" class="block nav-link">
+            <a href="{{ route('login') }}" class="block nav-link">
                 Entrar
             </a>
-            <a href="{{ route('auth.signup') }}" class="block nav-link">
+            <a href="{{ route('signup') }}" class="block nav-link">
                 Registrar
             </a>
         </div>
