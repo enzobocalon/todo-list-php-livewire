@@ -41,7 +41,7 @@ class Form extends Component
         } catch (ModelNotFoundException $e) {
             $this->dispatch(
                 'notify-home',
-                message: $e->getMessage(),
+                message: 'Tarefa não encontrada.',
                 type: 'error',
             );
             $this->dispatch('close-modal');
